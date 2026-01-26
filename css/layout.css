@@ -4,7 +4,7 @@
 }
 
 .jcp-section {
-  padding: var(--space-xl) 0;
+  padding: var(--jcp-space-5xl) 0;
 }
 
 .jcp-container {
@@ -14,27 +14,27 @@
 
 .jcp-grid-2 {
   display: grid;
-  gap: var(--space-lg);
+  gap: var(--jcp-space-lg);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
 }
 
 .jcp-hero-grid {
   display: grid;
-  gap: var(--space-lg);
+  gap: var(--jcp-space-lg);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
 }
 
 .jcp-grid-cards {
   display: grid;
-  gap: var(--space-md);
+  gap: var(--jcp-space-md);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .jcp-actions {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--jcp-space-sm);
   flex-wrap: wrap;
 }
 
