@@ -5,8 +5,7 @@
  * @package JCP_Core
  */
 
-/* Design System */
-@import url('./../../design-system.css');
+/* Design system now in base.css - no need to import */
 
 /* Homepage Section Styles */
 @import url('./home/hero.css');
