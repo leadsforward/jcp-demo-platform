@@ -89,6 +89,9 @@
   --jcp-size-icon-lg: 32px;
   --jcp-size-icon-xl: 48px;
   
+  /* Aliases for backwards compatibility */
+  --jcp-size-container-2xl: 1400px;
+  
   /* ========================
      BORDER RADIUS
      ======================== */
