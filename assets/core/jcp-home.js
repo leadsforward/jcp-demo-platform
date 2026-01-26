@@ -16,7 +16,7 @@
         <section class="directory-hero jcp-hero jcp-hero--standard">
           <div class="hero-split jcp-grid-2">
               <div class="hero-copy jcp-hero-copy">
-                <h1 class="jcp-hero-title">Jobs Complete. Customers Called. Business Grows.</h1>
+                <h1 class="jcp-hero-title">Turn every completed job into more calls and more customers</h1>
                 <p class="jcp-hero-subtitle">
                   Your team already takes job photos. JobCapturePro automatically turns those jobs into website updates, Google visibility, social posts, directory listings, and review requests so your work keeps bringing in new business.
                 </p>
