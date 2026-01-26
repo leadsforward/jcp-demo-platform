@@ -386,13 +386,15 @@
 .jcp-footer {
   border-top: 1px solid #e5e7eb;
   background: #ffffff;
-  padding: 48px 0;
+  padding: 48px 20px;
 }
 
 .jcp-footer-grid {
   display: grid;
   gap: 28px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: var(--jcp-container-width);
+  margin: 0 auto;
 }
 
 .jcp-footer-brand img {

@@ -11,5 +11,5 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'jcp-global-nav-active' ); ?>>
-  <?php get_template_part( 'templates/global/nav' ); ?>
+  <?php get_template_part( 'templates/partials/nav' ); ?>
   <div class="jcp-shell">
