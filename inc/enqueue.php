@@ -23,8 +23,7 @@ function jcp_core_enqueue_assets(): void {
 
     // Design System page (internal documentation)
     if ( $pages['is_design_system'] ) {
-        jcp_core_enqueue_style( 'jcp-core-design-system', 'css/design-system.css' );
-        jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css', [ 'jcp-core-design-system' ] );
+        jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css' );
         jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
         jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
         jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
@@ -32,18 +31,17 @@ function jcp_core_enqueue_assets(): void {
         return;
     }
 
-    // Load design system (available on all pages)
-    jcp_core_enqueue_style( 'jcp-core-design-system', 'css/design-system.css' );
+    // Load base CSS with all design system variables on all pages
+    jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css' );
 
     // Marketing pages: full design system
     if ( $is_marketing ) {
-        jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css', [ 'jcp-core-design-system' ] );
         jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
         jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
         jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
     } else {
         // Other pages: minimal CSS
-        jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-design-system' ] );
+        jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-base' ] );
         jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
     }
 
