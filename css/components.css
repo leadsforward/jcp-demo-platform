@@ -1,10 +1,5 @@
 @import url("../assets/css/components.css");
 
-:root {
-  --jcp-container-max: 1240px;
-  --jcp-container-gutter: 94%;
-  --jcp-container-width: min(var(--jcp-container-max), var(--jcp-container-gutter));
-}
 
 .jcp-btn {
   display: inline-flex;
