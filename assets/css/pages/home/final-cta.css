@@ -1,0 +1,91 @@
+/**
+ * Final CTA Section Styles
+ * @package JCP_Core
+ */
+
+.section-cta-final {
+  padding: var(--jcp-space-6xl) var(--jcp-space-lg);
+  background: linear-gradient(135deg, var(--jcp-color-secondary-dark) 0%, var(--jcp-color-secondary) 100%);
+  color: var(--jcp-color-text-light);
+  text-align: center;
+}
+
+.section-cta-final.jcp-section--dark {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+}
+
+.cta-final-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-final-title {
+  font-size: var(--jcp-font-size-5xl);
+  font-weight: var(--jcp-font-weight-extrabold);
+  color: var(--jcp-color-text-light);
+  margin-bottom: var(--jcp-space-lg);
+  line-height: var(--jcp-line-height-tight);
+}
+
+.cta-final-subtitle {
+  font-size: var(--jcp-font-size-xl);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--jcp-space-3xl);
+  line-height: var(--jcp-line-height-relaxed);
+}
+
+.cta-final-actions {
+  display: flex;
+  gap: var(--jcp-space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-final-button {
+  font-size: var(--jcp-font-size-base);
+  padding: var(--jcp-space-lg) var(--jcp-space-3xl);
+  font-weight: var(--jcp-font-weight-semibold);
+}
+
+.cta-final-button.btn-primary {
+  background: var(--jcp-color-primary);
+  color: white;
+  border: none;
+}
+
+.cta-final-button.btn-primary:hover {
+  background: var(--jcp-color-primary-dark);
+}
+
+.cta-final-button.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-final-button.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .section-cta-final {
+    padding: var(--jcp-space-5xl) var(--jcp-space-lg);
+  }
+
+  .cta-final-title {
+    font-size: var(--jcp-font-size-3xl);
+  }
+
+  .cta-final-subtitle {
+    font-size: var(--jcp-font-size-lg);
+  }
+
+  .cta-final-actions {
+    gap: var(--jcp-space-md);
+  }
+
+  .cta-final-button {
+    padding: var(--jcp-space-md) var(--jcp-space-2xl);
+    font-size: var(--jcp-font-size-sm);
+  }
+}

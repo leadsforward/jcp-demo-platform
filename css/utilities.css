@@ -1,0 +1,4 @@
+.u-muted { color: var(--color-muted); }
+.u-center { text-align: center; }
+.u-stack { display: grid; gap: var(--space-md); }
+.u-hidden { display: none !important; }

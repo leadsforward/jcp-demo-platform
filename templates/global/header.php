@@ -1,0 +1,15 @@
+<?php
+/**
+ * Global Header Template
+ * Renders the opening HTML, head, and body tags
+ *
+ * @package JCP_Core
+ */
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class( 'jcp-global-nav-active' ); ?>>
+  <?php get_template_part( 'templates/global/nav' ); ?>
+  <div class="jcp-shell">
