@@ -62,11 +62,11 @@ function jcp_core_asset_version( string $relative_path ): ?string {
  */
 function jcp_core_enqueue_style( string $handle, string $relative_path, array $deps = [] ): void {
     $path = jcp_core_asset_path( $relative_path );
-    if ( ! file_exists( $path ) ) {
-        return;
-    }
-
-    wp_enqueue_style( $handle, jcp_core_asset_url( $relative_path ), $deps, filemtime( $path ) );
+    $url = jcp_core_asset_url( $relative_path );
+    $version = filemtime( $path ) ? (string) filemtime( $path ) : null;
+    
+    // Always enqueue, let WordPress handle missing files
+    wp_enqueue_style( $handle, $url, $deps, $version );
 }
 
 /**
@@ -79,11 +79,11 @@ function jcp_core_enqueue_style( string $handle, string $relative_path, array $d
  */
 function jcp_core_enqueue_script( string $handle, string $relative_path, array $deps = [] ): void {
     $path = jcp_core_asset_path( $relative_path );
-    if ( ! file_exists( $path ) ) {
-        return;
-    }
-
-    wp_enqueue_script( $handle, jcp_core_asset_url( $relative_path ), $deps, filemtime( $path ), true );
+    $url = jcp_core_asset_url( $relative_path );
+    $version = filemtime( $path ) ? (string) filemtime( $path ) : null;
+    
+    // Always enqueue, let WordPress handle missing files
+    wp_enqueue_script( $handle, $url, $deps, $version, true );
 }
 
 /**
