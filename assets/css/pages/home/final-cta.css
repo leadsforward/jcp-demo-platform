@@ -4,7 +4,7 @@
  */
 
 .section-cta-final {
-  padding: var(--jcp-space-6xl) var(--jcp-space-lg);
+  padding: var(--jcp-space-5xl) var(--jcp-space-lg);
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: #ffffff;
   text-align: center;

@@ -4,7 +4,7 @@
 }
 
 .jcp-section {
-  padding: 72px 0;
+  padding: var(--jcp-space-5xl) 0;
 }
 
 .jcp-container {
@@ -15,17 +15,17 @@
 .jcp-hero-grid,
 .jcp-split-grid {
   display: grid;
-  gap: 40px;
+  gap: var(--jcp-space-2xl);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
 }
 
 .jcp-section-header {
-  margin-bottom: 28px;
+  margin-bottom: var(--jcp-space-3xl);
 }
 
 .jcp-section-header h2 {
-  margin: 0 0 10px;
+  margin: 0 0 var(--jcp-space-sm);
   font-size: clamp(28px, 3vw, 40px);
 }
 
@@ -36,28 +36,28 @@
 
 .jcp-actions {
   display: flex;
-  gap: 14px;
+  gap: var(--jcp-space-md);
   flex-wrap: wrap;
 }
 
 .jcp-bullets {
   list-style: none;
   padding: 0;
-  margin: 0 0 24px;
+  margin: 0 0 var(--jcp-space-lg);
   display: grid;
-  gap: 10px;
+  gap: var(--jcp-space-sm);
   font-weight: 700;
 }
 
 .jcp-grid {
   display: grid;
-  gap: 20px;
+  gap: var(--jcp-space-lg);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .jcp-steps-grid {
   display: grid;
-  gap: 18px;
+  gap: var(--jcp-space-md);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   list-style: none;
   padding: 0;
@@ -68,13 +68,13 @@
   display: inline-flex;
   width: 32px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: var(--jcp-border-radius-md);
   align-items: center;
   justify-content: center;
-  background: #ff503e;
+  background: var(--jcp-color-primary);
   color: #fff;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: var(--jcp-space-sm);
 }
 
 .jcp-float {
