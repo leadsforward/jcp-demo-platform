@@ -26,7 +26,8 @@ function jcp_core_enqueue_assets(): void {
         jcp_core_enqueue_style( 'jcp-core-design-system', 'css/design-system.css' );
         jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css', [ 'jcp-core-design-system' ] );
         jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
-        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-layout' ] );
+        jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
+        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
         jcp_core_enqueue_style( 'jcp-core-design-system-page', 'css/design-system-page.css', [ 'jcp-core-components' ] );
         return;
     }
@@ -38,11 +39,13 @@ function jcp_core_enqueue_assets(): void {
     if ( $is_marketing ) {
         jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css', [ 'jcp-core-design-system' ] );
         jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
-        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-layout' ] );
+        jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
+        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
         jcp_core_enqueue_style( 'jcp-core-utilities', 'css/utilities.css', [ 'jcp-core-components' ] );
     } else {
         // Other pages: minimal CSS
-        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-design-system' ] );
+        jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-design-system' ] );
+        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
     }
 
     // Page-specific assets
