@@ -146,5 +146,23 @@ function jcp_core_get_page_detection(): array {
         'is_directory'    => is_page_template( 'page-directory.php' ) || is_page( 'directory' ) || $path === 'directory',
         'is_estimate'     => is_page_template( 'page-estimate.php' ) || is_page( 'estimate' ) || $path === 'estimate',
         'is_company'      => is_singular( 'jcp_company' ) || is_page( 'company' ) || $path === 'company',
+        'is_design_system' => is_page_template( 'page-design-system.php' ) || is_page( 'design-system' ) || $path === 'design-system',
     ];
 }
+
+/**
+ * Add noindex/nofollow to design system page
+ *
+ * The design system page is internal documentation and should not be indexed
+ * by search engines or publicly linked.
+ *
+ * @return void
+ */
+function jcp_core_design_system_noindex(): void {
+    $pages = jcp_core_get_page_detection();
+    if ( $pages['is_design_system'] ) {
+        echo '<meta name="robots" content="noindex, nofollow">' . "\n";
+    }
+}
+
+add_action( 'wp_head', 'jcp_core_design_system_noindex' );

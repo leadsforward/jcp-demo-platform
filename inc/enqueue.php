@@ -21,6 +21,16 @@ function jcp_core_enqueue_assets(): void {
     // Always load navigation JS
     jcp_core_enqueue_script( 'jcp-core-nav', 'core/jcp-nav.js' );
 
+    // Design System page (internal documentation)
+    if ( $pages['is_design_system'] ) {
+        jcp_core_enqueue_style( 'jcp-core-design-system', 'css/design-system.css' );
+        jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css', [ 'jcp-core-design-system' ] );
+        jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
+        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-layout' ] );
+        jcp_core_enqueue_style( 'jcp-core-design-system-page', 'css/design-system-page.css', [ 'jcp-core-components' ] );
+        return;
+    }
+
     // Load design system (available on all pages)
     jcp_core_enqueue_style( 'jcp-core-design-system', 'css/design-system.css' );
 
