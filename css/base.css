@@ -94,6 +94,7 @@
      ======================== */
   --jcp-radius-sm: 4px;
   --jcp-radius-md: 8px;
+  --jcp-border-radius-md: 8px;
   --jcp-radius-lg: 12px;
   --jcp-radius-xl: 16px;
   --jcp-radius-2xl: 24px;
@@ -127,6 +128,7 @@
      ======================== */
   --jcp-transition-fast: 150ms ease-in-out;
   --jcp-transition-base: 200ms ease-in-out;
+  --jcp-transition-default: 200ms ease-in-out;
   --jcp-transition-slow: 300ms ease-in-out;
   
   /* ========================
