@@ -5,7 +5,7 @@
 
 .section-proof {
   padding: var(--jcp-space-5xl) 0;
-  background: var(--jcp-color-bg-secondary);
+  background: #ffffff;
 }
 
 .section-proof .section-header {
@@ -19,10 +19,13 @@
 }
 
 .proof-card {
-  background: var(--jcp-color-bg-primary);
+  background: #ffffff !important;
+  border: 2px solid #e5e7eb !important;
   border-radius: var(--jcp-radius-xl);
   padding: var(--jcp-space-2xl);
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .proof-metric {

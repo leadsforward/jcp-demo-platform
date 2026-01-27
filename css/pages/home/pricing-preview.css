@@ -18,20 +18,7 @@
   margin-bottom: var(--jcp-space-5xl);
 }
 
-.pricing-card {
-  background: var(--jcp-color-bg-primary);
-  border: 1px solid var(--jcp-color-border);
-  border-radius: var(--jcp-radius-2xl);
-  padding: var(--jcp-space-2xl);
-  text-align: center;
-  transition: all var(--jcp-transition-base);
-}
-
-.pricing-card:hover {
-  border-color: var(--jcp-color-primary);
-  box-shadow: var(--jcp-shadow-lg);
-  transform: translateY(-4px);
-}
+/* Card styles unified in components.css */
 
 .pricing-header {
   margin-bottom: var(--jcp-space-2xl);
@@ -58,7 +45,7 @@
 
 .pricing-feature {
   padding: var(--jcp-space-sm) 0;
-  border-bottom: 1px solid var(--jcp-color-border-light);
+  border-bottom: 2px solid #e5e7eb;
   font-size: var(--jcp-font-size-base);
   color: var(--jcp-color-text-secondary);
 }

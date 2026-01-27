@@ -1,3 +1,12 @@
+/**
+ * Early Access Page Styles
+ *
+ * Early access sign-up and preview page.
+ * All values use design system variables.
+ *
+ * @package JCP_Core
+ */
+
 .jcp-early-access-page .jcp-preview {
   background: #fff7f5;
 }
@@ -9,7 +18,7 @@
 .jcp-hero {
   position: relative;
   background: radial-gradient(circle at 10% 10%, #fff6f3 0%, #ffffff 45%);
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--jcp-color-border);
   overflow: hidden;
 }
 
@@ -26,42 +35,36 @@
 .jcp-hero-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 24px;
+  gap: var(--jcp-space-md);
+  margin-top: var(--jcp-space-lg);
 }
 
 .jcp-metric {
   display: block;
-  font-size: 18px;
-  font-weight: 900;
+  font-size: var(--jcp-font-size-lg);
+  font-weight: var(--jcp-font-weight-extrabold);
 }
 
 .jcp-metric-label {
-  color: #6b7280;
-  font-weight: 600;
-  font-size: 13px;
+  color: var(--jcp-color-text-secondary);
+  font-weight: var(--jcp-font-weight-semibold);
+  font-size: var(--jcp-font-size-xs);
 }
 
 .jcp-trust {
-  padding-top: 40px;
+  padding-top: var(--jcp-space-2xl);
 }
 
 .jcp-trust-grid {
   display: grid;
-  gap: 18px;
+  gap: var(--jcp-space-md);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.jcp-trust-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  padding: 18px 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
-}
+/* Card styles unified in components.css */
 
 .jcp-grid-tight {
-  gap: 16px;
+  gap: var(--jcp-space-md);
 }
 
 @media (max-width: 900px) {

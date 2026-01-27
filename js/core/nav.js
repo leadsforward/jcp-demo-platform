@@ -9,22 +9,30 @@
   const initMobileMenu = () => {
     if (!menuToggle || !menuClose || !menuOverlay) return;
 
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       menuOverlay.classList.add('active');
       menuToggle.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
 
-    const closeMenu = () => {
+    const closeMenu = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       menuOverlay.classList.remove('active');
       menuToggle.classList.remove('active');
       document.body.style.overflow = '';
     };
 
     menuClose.addEventListener('click', closeMenu);
+    menuClose.addEventListener('touchstart', closeMenu);
+    
     menuOverlay.addEventListener('click', (e) => {
-      if (e.target === menuOverlay) {
-        closeMenu();
+      if (e.target === menuOverlay || e.target.closest('.mobile-menu-content') === null) {
+        closeMenu(e);
       }
     });
 
@@ -34,14 +42,22 @@
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
-        closeMenu();
+        closeMenu(e);
       }
     });
   };
 
   const initScroll = () => {
+    let ticking = false;
     const onScroll = () => {
-      header.classList.toggle('is-scrolled', window.scrollY > 12);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+          header.classList.toggle('is-scrolled', scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });

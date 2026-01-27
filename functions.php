@@ -24,3 +24,16 @@ require_once get_template_directory() . '/inc/acf-config.php';
 // Load design system page setup
 require_once get_template_directory() . '/inc/design-system-setup.php';
 
+/**
+ * Remove tailwind.min.css if it's being enqueued (prevents 404 errors)
+ */
+function jcp_core_remove_tailwind() {
+    wp_dequeue_style( 'tailwind' );
+    wp_deregister_style( 'tailwind' );
+    wp_dequeue_style( 'tailwindcss' );
+    wp_deregister_style( 'tailwindcss' );
+    wp_dequeue_style( 'tailwind.min.css' );
+    wp_deregister_style( 'tailwind.min.css' );
+}
+add_action( 'wp_enqueue_scripts', 'jcp_core_remove_tailwind', 999 );
+

@@ -27,7 +27,21 @@ function jcp_core_enqueue_assets(): void {
         jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
         jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
         jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
-        jcp_core_enqueue_style( 'jcp-core-design-system-page', 'css/design-system-page.css', [ 'jcp-core-components' ] );
+        jcp_core_enqueue_style( 'jcp-core-utilities', 'css/utilities.css', [ 'jcp-core-components' ] );
+        jcp_core_enqueue_style( 'jcp-core-design-system-page', 'css/design-system-page.css', [ 'jcp-core-utilities' ] );
+        return;
+    }
+
+    // UI Library page (internal documentation - shows all components)
+    if ( $pages['is_ui_library'] ) {
+        jcp_core_enqueue_style( 'jcp-core-base', 'css/base.css' );
+        jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
+        jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
+        jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
+        jcp_core_enqueue_style( 'jcp-core-utilities', 'css/utilities.css', [ 'jcp-core-components' ] );
+        // Load homepage section styles to show all components
+        jcp_core_enqueue_style( 'jcp-core-directory', 'css/pages/directory.css', [ 'jcp-core-components' ] );
+        jcp_core_enqueue_style( 'jcp-core-home', 'css/pages/home.css', [ 'jcp-core-directory' ] );
         return;
     }
 
@@ -39,10 +53,12 @@ function jcp_core_enqueue_assets(): void {
         jcp_core_enqueue_style( 'jcp-core-layout', 'css/layout.css', [ 'jcp-core-base' ] );
         jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-layout' ] );
         jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
+        jcp_core_enqueue_style( 'jcp-core-utilities', 'css/utilities.css', [ 'jcp-core-components' ] );
     } else {
         // Other pages: minimal CSS
         jcp_core_enqueue_style( 'jcp-core-buttons', 'css/buttons.css', [ 'jcp-core-base' ] );
         jcp_core_enqueue_style( 'jcp-core-components', 'css/components.css', [ 'jcp-core-buttons' ] );
+        jcp_core_enqueue_style( 'jcp-core-utilities', 'css/utilities.css', [ 'jcp-core-components' ] );
     }
 
     // Page-specific assets
@@ -55,7 +71,9 @@ function jcp_core_enqueue_assets(): void {
 
     if ( $pages['is_pricing'] ) {
         jcp_core_enqueue_style( 'jcp-core-pricing', 'css/pages/pricing.css', [ 'jcp-core-components' ] );
-        jcp_core_enqueue_script( 'jcp-core-pricing', 'core/jcp-pricing.js' );
+        jcp_core_enqueue_style( 'jcp-core-home-faq', 'css/pages/home/faq.css', [ 'jcp-core-pricing' ] );
+        jcp_core_enqueue_script( 'jcp-shared-faq', 'shared/jcp-faq.js' );
+        jcp_core_enqueue_script( 'jcp-core-pricing', 'core/jcp-pricing.js', [ 'jcp-shared-faq' ] );
         $render_deps[] = 'jcp-core-pricing';
     }
 

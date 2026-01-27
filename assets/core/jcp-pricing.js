@@ -6,86 +6,78 @@
   const assetBase = () => window.JCP_ASSET_BASE || fallbackBase;
   const icon = (name) => `${assetBase()}/shared/assets/icons/lucide/${name}.svg`;
 
+  // Pricing-specific FAQ items
+  const pricingFAQItems = [
+    {
+      id: 'faq-pricing-setup',
+      question: 'How fast can we launch?',
+      answer: 'Most companies are live within a few days. We connect your website, set up your locations, and turn on the channels you want so job activity can start publishing immediately.'
+    },
+    {
+      id: 'faq-pricing-integrations',
+      question: 'What integrations do you support?',
+      answer: 'JobCapturePro supports HouseCall Pro, CompanyCam, Workiz, and QuickBooks today. If you use a different system and it has an API, we can evaluate a custom integration for higher tier plans.'
+    },
+    {
+      id: 'faq-pricing-locations',
+      question: 'Can we use JobCapturePro for multiple locations?',
+      answer: 'Yes. Each location can have its own Google Business Profile and connected social accounts, with organization level management for multi location teams.'
+    },
+    {
+      id: 'faq-pricing-pricing',
+      question: 'What is included in each plan?',
+      answer: 'All plans include core features like photo capture, proof generation, and basic publishing. Higher tiers add CRM integrations, automated reviews, social automation, and advanced reporting. See the comparison table above for details.'
+    },
+    {
+      id: 'faq-pricing-trial',
+      question: 'Is there a free trial?',
+      answer: 'We offer early access pricing for founding members. Contact us to learn more about current offers and see if you qualify for special pricing.'
+    },
+    {
+      id: 'faq-pricing-cancel',
+      question: 'Can I change plans or cancel?',
+      answer: 'Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes take effect at your next billing cycle.'
+    }
+  ];
+
   window.renderPricing = () => {
     const root = document.getElementById('jcp-app');
     if (!root) return;
 
+    // Load FAQ component if available
+    const faqHTML = typeof window.renderFAQ === 'function' 
+      ? window.renderFAQ({
+          title: 'Pricing FAQ',
+          subtitle: 'Common questions about plans, pricing, and getting started.',
+          items: pricingFAQItems,
+          id: 'pricing-faq'
+        })
+      : '';
+
     root.innerHTML = `
       <main class="jcp-marketing jcp-pricing-page">
         <section class="jcp-section jcp-hero">
-          <div class="jcp-hero-glow"></div>
-          <div class="jcp-container jcp-hero-grid">
-            <div class="jcp-hero-copy">
-              <p class="jcp-eyebrow">Pricing</p>
-              <h1>Invest in proof that wins more jobs</h1>
-              <p class="jcp-lead">
-                JobCapturePro pays for itself by turning real work into reviews, visibility, and trust
-                that drives inbound demand.
-              </p>
-              <div class="jcp-actions">
-                <a class="btn btn-primary" href="/early-access">Join Early Access</a>
-                <a class="btn btn-secondary" href="/demo">See the Demo</a>
-              </div>
-              <div class="jcp-hero-metrics">
-                <div>
-                  <span class="jcp-metric">Proof → trust</span>
-                  <span class="jcp-metric-label">wins more jobs</span>
-                </div>
-                <div>
-                  <span class="jcp-metric">Automated</span>
-                  <span class="jcp-metric-label">no extra labor</span>
-                </div>
-                <div>
-                  <span class="jcp-metric">Local lift</span>
-                  <span class="jcp-metric-label">map visibility</span>
-                </div>
-              </div>
-            </div>
-            <div class="jcp-hero-card jcp-preview jcp-float">
-              <div class="jcp-preview-header">
-                <span class="jcp-preview-pill jcp-badge-pulse">ROI focus</span>
-                <span class="jcp-preview-title">Proof → visibility → revenue</span>
-              </div>
-              <div class="jcp-preview-grid">
-                <div class="jcp-preview-card">
-                  <img src="${icon('star')}" alt="" />
-                  <p>More reviews</p>
-                </div>
-                <div class="jcp-preview-card">
-                  <img src="${icon('map-pin')}" alt="" />
-                  <p>Better local rank</p>
-                </div>
-                <div class="jcp-preview-card">
-                  <img src="${icon('phone')}" alt="" />
-                  <p>More inbound calls</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="jcp-section jcp-trust">
-          <div class="jcp-container jcp-trust-grid">
-            <div class="jcp-trust-card">
-              <h3>Earn trust fast</h3>
-              <p>Verified job posts turn your website into proof customers believe.</p>
-            </div>
-            <div class="jcp-trust-card">
-              <h3>Stay visible locally</h3>
-              <p>More completed jobs = more local coverage and ranking movement.</p>
-            </div>
-            <div class="jcp-trust-card">
-              <h3>Reviews on autopilot</h3>
-              <p>Requests go out automatically, so reviews grow without effort.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="jcp-section">
           <div class="jcp-container">
-            <div class="jcp-section-header">
+            <div class="jcp-hero-grid">
+              <div class="jcp-hero-copy">
+                <h1 class="jcp-hero-title">Invest in proof that wins more jobs</h1>
+                <p class="jcp-hero-subtitle">
+                  JobCapturePro pays for itself by turning real work into reviews, visibility, and trust that drives inbound demand.
+                </p>
+                <div class="jcp-actions">
+                  <a class="btn btn-primary" href="/early-access">Join Early Access</a>
+                  <a class="btn btn-secondary" href="/demo">See the Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="jcp-section rankings-section">
+          <div class="jcp-container">
+            <div class="rankings-header">
               <h2>Choose the plan that matches your growth</h2>
-              <p>Each tier aligns to business maturity and visibility goals.</p>
+              <p class="rankings-subtitle">Each tier aligns to business maturity and visibility goals.</p>
             </div>
             <div class="jcp-pricing-grid">
               <article class="jcp-pricing-card">
@@ -151,11 +143,11 @@
           </div>
         </section>
 
-        <section class="jcp-section jcp-compare">
+        <section class="jcp-section rankings-section">
           <div class="jcp-container">
-            <div class="jcp-section-header">
+            <div class="rankings-header">
               <h2>Compare plans by outcome</h2>
-              <p>Capture, publish, reviews, visibility, and reporting—organized for quick decisions.</p>
+              <p class="rankings-subtitle">Capture, publish, reviews, visibility, and reporting—organized for quick decisions.</p>
             </div>
             <div class="jcp-compare-table">
               <div class="jcp-compare-row jcp-compare-head">
@@ -202,26 +194,7 @@
           </div>
         </section>
 
-        <footer class="jcp-footer">
-          <div class="jcp-container jcp-footer-grid">
-            <div class="jcp-footer-brand">
-              <img src="https://jobcapturepro.com/wp-content/uploads/2025/11/JobCapturePro-Logo-Dark.png" alt="JobCapturePro" />
-              <p>Turn real job photos into proof, visibility, reviews, and more jobs.</p>
-            </div>
-            <div class="jcp-footer-col">
-              <h4>Product</h4>
-              <a href="/demo">Live demo</a>
-              <a href="/directory">Directory</a>
-              <a href="/estimate">Estimate builder</a>
-            </div>
-            <div class="jcp-footer-col">
-              <h4>Company</h4>
-              <a href="/pricing">Pricing</a>
-              <a href="/early-access">Founding crew</a>
-              <a href="/#how-it-works">How it works</a>
-            </div>
-          </div>
-        </footer>
+        ${faqHTML}
       </main>
     `;
 

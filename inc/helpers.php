@@ -147,6 +147,7 @@ function jcp_core_get_page_detection(): array {
         'is_estimate'     => is_page_template( 'page-estimate.php' ) || is_page( 'estimate' ) || $path === 'estimate',
         'is_company'      => is_singular( 'jcp_company' ) || is_page( 'company' ) || $path === 'company',
         'is_design_system' => is_page_template( 'page-design-system.php' ) || is_page( 'design-system' ) || $path === 'design-system',
+        'is_ui_library'   => is_page_template( 'page-ui-library.php' ) || is_page( 'ui-library' ) || $path === 'ui-library',
     ];
 }
 
@@ -160,7 +161,7 @@ function jcp_core_get_page_detection(): array {
  */
 function jcp_core_design_system_noindex(): void {
     $pages = jcp_core_get_page_detection();
-    if ( $pages['is_design_system'] ) {
+    if ( $pages['is_design_system'] || $pages['is_ui_library'] ) {
         echo '<meta name="robots" content="noindex, nofollow">' . "\n";
     }
 }
