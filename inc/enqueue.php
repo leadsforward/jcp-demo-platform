@@ -79,6 +79,8 @@ function jcp_core_enqueue_assets(): void {
 
     if ( $pages['is_early_access'] ) {
         jcp_core_enqueue_style( 'jcp-core-early-access', 'css/pages/early-access.css', [ 'jcp-core-components' ] );
+        // Use the same homepage CTA styling for consistent marketing CTAs.
+        jcp_core_enqueue_style( 'jcp-core-home-final-cta', 'css/pages/home/final-cta.css', [ 'jcp-core-early-access' ] );
         jcp_core_enqueue_script( 'jcp-core-early-access', 'core/jcp-early-access.js' );
         $render_deps[] = 'jcp-core-early-access';
     }
