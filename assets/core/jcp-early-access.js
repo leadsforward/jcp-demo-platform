@@ -12,6 +12,73 @@
 
     root.innerHTML = `
       <main class="jcp-marketing jcp-early-access-page">
+        <!-- Founding Crew Form Section -->
+        <section class="jcp-section jcp-form-section">
+          <div class="jcp-container">
+            <div class="jcp-form-wrapper">
+              <div class="jcp-form-header">
+                <p class="jcp-eyebrow">Join the Founding Crew</p>
+                <h2>Get early-bird pricing and shape the platform</h2>
+                <p class="jcp-form-subtitle">
+                  Be among the first to access JobCapturePro with special founding member pricing and direct influence on product development.
+                </p>
+              </div>
+              <form class="jcp-founding-form" id="foundingCrewForm">
+                <div class="jcp-form-grid">
+                  <div class="jcp-form-field">
+                    <label for="founding-name">Full Name</label>
+                    <input 
+                      type="text" 
+                      id="founding-name" 
+                      name="name" 
+                      placeholder="John Smith" 
+                      required 
+                    />
+                  </div>
+                  <div class="jcp-form-field">
+                    <label for="founding-email">Email Address</label>
+                    <input 
+                      type="email" 
+                      id="founding-email" 
+                      name="email" 
+                      placeholder="john@example.com" 
+                      required 
+                    />
+                  </div>
+                  <div class="jcp-form-field">
+                    <label for="founding-company">Company Name</label>
+                    <input 
+                      type="text" 
+                      id="founding-company" 
+                      name="company" 
+                      placeholder="Summit Plumbing" 
+                      required 
+                    />
+                  </div>
+                  <div class="jcp-form-field">
+                    <label for="founding-phone">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      id="founding-phone" 
+                      name="phone" 
+                      placeholder="(555) 123-4567" 
+                    />
+                  </div>
+                </div>
+                <div class="jcp-form-actions">
+                  <button type="submit" class="btn btn-primary">
+                    Join the Founding Crew
+                  </button>
+                  <p class="jcp-form-note">
+                    No commitment required. We'll reach out with early-bird pricing details.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hero Section -->
         <section class="jcp-section jcp-hero">
           <div class="jcp-hero-glow"></div>
           <div class="jcp-container jcp-hero-grid">
@@ -23,7 +90,7 @@
                 rankings, and revenue.
               </p>
               <div class="jcp-actions">
-                <a class="btn btn-primary" href="/early-access">Join the Founding Crew</a>
+                <a class="btn btn-primary" href="#foundingCrewForm">Join the Founding Crew</a>
                 <a class="btn btn-secondary" href="/demo">See the Demo</a>
               </div>
               <div class="jcp-hero-metrics">
@@ -130,7 +197,36 @@
     `;
 
     initMarketingNav();
+    initFoundingForm();
   };
+
+  function initFoundingForm() {
+    const form = document.getElementById('foundingCrewForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // TODO: Replace with actual form submission endpoint
+      console.log('Form submission:', data);
+      
+      // Show success message
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitted! We\'ll be in touch soon.';
+      submitBtn.disabled = true;
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 3000);
+    });
+  }
 
   function initMarketingNav() {
     const menuToggle = document.getElementById('mobileMenuToggle');
