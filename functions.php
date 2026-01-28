@@ -36,4 +36,3 @@ function jcp_core_remove_tailwind() {
     wp_deregister_style( 'tailwind.min.css' );
 }
 add_action( 'wp_enqueue_scripts', 'jcp_core_remove_tailwind', 999 );
-

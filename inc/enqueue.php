@@ -110,7 +110,8 @@ function jcp_core_enqueue_assets(): void {
     // Directory page
     if ( $pages['is_directory'] ) {
         jcp_core_enqueue_style( 'jcp-core-demo', 'css/pages/demo.css' );
-        jcp_core_enqueue_style( 'jcp-core-directory', 'css/pages/directory.css' );
+        jcp_core_enqueue_style( 'jcp-core-directory', 'css/pages/directory-consolidated.css', [ 'jcp-core-utilities' ] );
+        jcp_core_enqueue_style( 'jcp-core-directory-trust', 'css/pages/directory-trust.css', [ 'jcp-core-directory' ] );
         jcp_core_enqueue_script( 'jcp-core-directory', 'directory/directory.js', [ $render_handle ] );
 
         // Fetch all companies
@@ -135,8 +136,9 @@ function jcp_core_enqueue_assets(): void {
     // Company (single company profile)
     if ( $pages['is_company'] ) {
         jcp_core_enqueue_style( 'jcp-core-demo', 'css/pages/demo.css' );
-        jcp_core_enqueue_style( 'jcp-core-directory', 'css/pages/directory.css' );
-        jcp_core_enqueue_style( 'jcp-core-profile', 'directory/profile.css', [ 'jcp-core-directory' ] );
+        jcp_core_enqueue_style( 'jcp-core-directory', 'css/pages/directory-consolidated.css', [ 'jcp-core-utilities' ] );
+        jcp_core_enqueue_style( 'jcp-core-directory-trust', 'css/pages/directory-trust.css', [ 'jcp-core-directory' ] );
+        jcp_core_enqueue_style( 'jcp-core-profile', 'css/pages/profile-consolidated.css', [ 'jcp-core-directory' ] );
         jcp_core_enqueue_script( 'jcp-core-profile', 'directory/profile.js', [ $render_handle ] );
         jcp_core_enqueue_script( 'jcp-core-directory-integration', 'directory/directory-integration.js', [ 'jcp-core-profile' ] );
 

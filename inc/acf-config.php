@@ -303,6 +303,221 @@ function jcp_core_register_acf_field_groups() {
         ]
     );
 
+    // Pricing Section Field Group
+    acf_add_local_field_group(
+        [
+            'key'      => 'jcp_homepage_pricing',
+            'title'    => 'Pricing Section',
+            'fields'   => [
+                [
+                    'key'      => 'enable_pricing_section',
+                    'label'    => 'Enable this section',
+                    'name'     => 'enable_pricing_section',
+                    'type'     => 'true_false',
+                    'default'  => 1,
+                ],
+                [
+                    'key'        => 'pricing_section_title',
+                    'label'      => 'Section Title',
+                    'name'       => 'pricing_section_title',
+                    'type'       => 'text',
+                    'default'    => 'Pricing that grows with your business',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field'    => 'enable_pricing_section',
+                                'operator' => '==',
+                                'value'    => '1',
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'key'        => 'pricing_section_subtitle',
+                    'label'      => 'Subtitle',
+                    'name'       => 'pricing_section_subtitle',
+                    'type'       => 'textarea',
+                    'default'    => 'No setup fees. No long contracts. Scale up or down anytime.',
+                    'rows'       => 2,
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field'    => 'enable_pricing_section',
+                                'operator' => '==',
+                                'value'    => '1',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'location' => [
+                [
+                    [
+                        'param'    => 'options_page',
+                        'operator' => '==',
+                        'value'    => 'jcp-homepage',
+                    ],
+                ],
+            ],
+            'menu_order' => 25,
+        ]
+    );
+
+    // Features Section Field Group
+    acf_add_local_field_group(
+        [
+            'key'      => 'jcp_homepage_features',
+            'title'    => 'Features Section',
+            'fields'   => [
+                [
+                    'key'      => 'enable_features',
+                    'label'    => 'Enable this section',
+                    'name'     => 'enable_features',
+                    'type'     => 'true_false',
+                    'default'  => 1,
+                ],
+                [
+                    'key'        => 'features_title',
+                    'label'      => 'Section Title',
+                    'name'       => 'features_title',
+                    'type'       => 'text',
+                    'default'    => 'What you get with JobCapturePro',
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field'    => 'enable_features',
+                                'operator' => '==',
+                                'value'    => '1',
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'key'        => 'features_subtitle',
+                    'label'      => 'Subtitle',
+                    'name'       => 'features_subtitle',
+                    'type'       => 'textarea',
+                    'default'    => 'Everything your business needs to turn job photos into business results.',
+                    'rows'       => 2,
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field'    => 'enable_features',
+                                'operator' => '==',
+                                'value'    => '1',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'location' => [
+                [
+                    [
+                        'param'    => 'options_page',
+                        'operator' => '==',
+                        'value'    => 'jcp-homepage',
+                    ],
+                ],
+            ],
+            'menu_order' => 22,
+        ]
+    );
+
+    // Footer Settings Field Group
+    acf_add_local_field_group(
+        [
+            'key'      => 'jcp_homepage_footer',
+            'title'    => 'Footer Settings',
+            'fields'   => [
+                [
+                    'key'        => 'footer_tagline',
+                    'label'      => 'Footer Tagline',
+                    'name'       => 'footer_tagline',
+                    'type'       => 'text',
+                    'default'    => 'Turn real job photos into proof, visibility, reviews, and more jobs.',
+                    'maxlength'  => 120,
+                ],
+                [
+                    'key'      => 'footer_links',
+                    'label'    => 'Footer Links',
+                    'name'     => 'footer_links',
+                    'type'     => 'repeater',
+                    'layout'   => 'block',
+                    'button_label' => 'Add Link',
+                    'sub_fields' => [
+                        [
+                            'key'      => 'footer_link_text',
+                            'label'    => 'Link Text',
+                            'name'     => 'footer_link_text',
+                            'type'     => 'text',
+                            'required' => 1,
+                        ],
+                        [
+                            'key'      => 'footer_link_url',
+                            'label'    => 'Link URL',
+                            'name'     => 'footer_link_url',
+                            'type'     => 'url',
+                            'required' => 1,
+                        ],
+                    ],
+                ],
+            ],
+            'location' => [
+                [
+                    [
+                        'param'    => 'options_page',
+                        'operator' => '==',
+                        'value'    => 'jcp-homepage',
+                    ],
+                ],
+            ],
+            'menu_order' => 40,
+        ]
+    );
+
+    // Section Visibility Field Group (Master Control)
+    acf_add_local_field_group(
+        [
+            'key'      => 'jcp_homepage_visibility',
+            'title'    => 'Section Visibility & Order',
+            'fields'   => [
+                [
+                    'key'        => 'section_order_info',
+                    'label'      => 'Section Display Order',
+                    'name'       => 'section_order_info',
+                    'type'       => 'message',
+                    'message'    => 'Sections display in this order: Hero → How It Works → Features → Pricing → FAQ. Each section can be enabled/disabled individually above.',
+                ],
+                [
+                    'key'      => 'show_social_proof',
+                    'label'    => 'Show Social Proof Section',
+                    'name'     => 'show_social_proof',
+                    'type'     => 'true_false',
+                    'default'  => 1,
+                    'instructions' => 'Show customer testimonials and trust indicators',
+                ],
+                [
+                    'key'      => 'show_final_cta',
+                    'label'    => 'Show Final CTA Section',
+                    'name'     => 'show_final_cta',
+                    'type'     => 'true_false',
+                    'default'  => 1,
+                    'instructions' => 'Show the final call-to-action section at bottom',
+                ],
+            ],
+            'location' => [
+                [
+                    [
+                        'param'    => 'options_page',
+                        'operator' => '==',
+                        'value'    => 'jcp-homepage',
+                    ],
+                ],
+            ],
+            'menu_order' => 5,
+        ]
+    );
+
     // General Settings Field Group
     acf_add_local_field_group(
         [
@@ -315,6 +530,7 @@ function jcp_core_register_acf_field_groups() {
                     'name'       => 'site_logo_url',
                     'type'       => 'url',
                     'default'    => 'https://jobcapturepro.com/wp-content/uploads/2025/11/JobCapturePro-Logo-Dark.png',
+                    'instructions' => 'Logo used in navigation and footer',
                 ],
                 [
                     'key'        => 'site_primary_color',
@@ -322,6 +538,16 @@ function jcp_core_register_acf_field_groups() {
                     'name'       => 'site_primary_color',
                     'type'       => 'color_picker',
                     'default'    => '#ff503e',
+                    'instructions' => 'Used for buttons, links, and highlights',
+                ],
+                [
+                    'key'        => 'site_description',
+                    'label'      => 'Site Meta Description',
+                    'name'       => 'site_description',
+                    'type'       => 'textarea',
+                    'default'    => 'JobCapturePro turns job photos into website updates, Google visibility, social posts, and review requests.',
+                    'rows'       => 2,
+                    'instructions' => 'Used for SEO meta tags',
                 ],
             ],
             'location' => [
@@ -333,9 +559,26 @@ function jcp_core_register_acf_field_groups() {
                     ],
                 ],
             ],
-            'menu_order' => 0,
+            'menu_order' => 1,
         ]
     );
 }
 
 add_action( 'acf/init', 'jcp_core_register_acf_field_groups' );
+
+/**
+ * Get ACF Homepage Options with Safe Defaults
+ *
+ * @param string $field_name Field name to retrieve
+ * @param mixed  $default Default value if field not set
+ * @return mixed Field value or default
+ */
+function jcp_core_get_homepage_option( $field_name, $default = null ) {
+    $value = get_field( $field_name, 'option' );
+    
+    if ( empty( $value ) && $default !== null ) {
+        return $default;
+    }
+    
+    return $value;
+}
